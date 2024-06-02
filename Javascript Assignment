@@ -1,0 +1,53 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// 1. Create a variable to hold an array of NFTs (objects)
+let nftCollection = [];
+
+// 2. mintNFT function creates an NFT object and stores it in nftCollection
+function mintNFT(playerName, position, jerseyNumber, yearJoined) {
+  // Create an NFT object with metadata
+  const nft = {
+    playerName: playerName,
+    position: position,
+    jerseyNumber: jerseyNumber,
+    yearJoined: yearJoined,
+  };
+
+  // Add the NFT object to the nftCollection array
+  nftCollection.push(nft);
+}
+
+// 3. listNFTs function iterates through nftCollection and logs metadata
+function listNFTs() {
+  console.log("List of all minted NFTs:");
+  for (const nft of nftCollection) {
+    console.log("Player Name:", nft.playerName);
+    console.log("Position:", nft.position);
+    console.log("Jersey Number:", nft.jerseyNumber);
+    console.log("Year Joined:", nft.yearJoined);
+    console.log("---");
+  }
+}
+
+// 4. getTotalSupply function returns the length of the nftCollection array
+function getTotalSupply() {
+  return nftCollection.length;
+}
+
+// Example usage of the functions
+mintNFT("Luka Dončić", "Point Guard", 77, 2018);
+mintNFT("Kyrie Irving", "Shooting Gaurd", 11, 2023);
+mintNFT("Dereck Lively", "Centre", 2, 2023);
+
+listNFTs();
+
+const totalNFTs = getTotalSupply();
+console.log("Total NFTs minted:", totalNFTs);
